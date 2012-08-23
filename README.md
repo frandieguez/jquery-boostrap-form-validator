@@ -17,7 +17,7 @@ $('#form').onmValidate();
 ```
 
 ```html
-<form class="form-horizontal">
+<form class="form-horizontal" id="form">
     <div class="control-group">
         <label for="login" class="control-label">{t}Email{/t}</label>
         <div class="controls">
@@ -46,3 +46,8 @@ $('#form').onmValidate({
     'lang' : 'gl'
 });
 ```
+
+Examples
+--------
+
+You can find more examples inside the examples/ folder.
