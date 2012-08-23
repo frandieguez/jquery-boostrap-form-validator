@@ -26,7 +26,7 @@
             }
         },
         remove_all_validation_markup: function (container) {
-            $('.help-inline.error, .help-inline.success, .help-inline.warning', form).remove();
+            $('.help-inline.error, .help-inline.success, .help-inline.warning', container).remove();
             $('.error, .success, .warning', container).removeClass('error success warning');
         }
     };
