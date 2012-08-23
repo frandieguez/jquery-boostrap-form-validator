@@ -9,14 +9,14 @@
             container.removeClass('error success warning');
             $('.help-inline.error, .help-inline.success, .help-inline.warning', container).remove();
         },
-        add_validation_markup: function (input, cls, caption) {
+        add_validation_markup: function (input, css_class, caption) {
             var container = helpers.find_container(input);
-            container.addClass(cls);
-            input.addClass(cls);
+            container.addClass(css_class);
+            input.addClass(css_class);
 
             if (caption) {
                 var msg = $('<span class="help-inline"/>');
-                msg.addClass(cls);
+                msg.addClass(css_class);
                 msg.text(caption);
                 if (input.parent().is('.input-prepend, .input-append')) {
                     input.parent().after(msg);
@@ -75,6 +75,11 @@
                             $.each(errors, function() {
                                 var err = this;
                                 var input = $(err.input);
+                                var panel = input.closest('.ui-tabs-panel');
+                                if (panel) {
+                                    var panel_id = panel.attr('id');
+                                    var tabs = $(panel.closest('.ui-tabs')).tabs('select', panel_id);
+                                }
                                 helpers.remove_validation_markup(input);
                                 helpers.add_validation_markup(input, 'error', err.messages.join(' '));
                             });
